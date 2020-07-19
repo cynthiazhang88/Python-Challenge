@@ -14,5 +14,18 @@ csvpath = os.path.join("PyBank", "Resources", "budget_data.csv")
 
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
+    csv_header = next(csvreader)
+    row = next(csvreader)
+
+    previous_row = int(row[1])
+    total_months += 1
+    net_amount += int(row[1])
+    greatest_increase = int(row[1])
+    greatest_increase_month = row[0]
+
+for row in csvreader:
+     total_months += 1
+
+
 
     
