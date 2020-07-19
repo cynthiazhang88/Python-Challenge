@@ -13,11 +13,14 @@ with open(csvpath, newline='') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
     csv_header = next(csvfile)
 
-    total_votes = khan_votes+correy_votes+li_votes+otooley_votes
-
-    khan_wins = khan_votes/total_votes
-    correy_wins = correy_votes/total_votes
-    li_wins = li_votes/total_votes
-    otooley_wins = otooley_votes/total_votes
-
+    for row in csvreader:
+        if row[2]=="Khan":
+            winner="Khan"
+        elif row[2]=="Correy":
+            winner="Correy"
+        elif row[2]=="Li":
+            winner="Li"
+        else:
+            winner="O'Tooley"    
+    
     
