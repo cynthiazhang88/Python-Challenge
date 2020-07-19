@@ -43,7 +43,13 @@ with open(csvpath) as csvfile:
 
     highest = max(monthly_change)
     lowest  = min(monthly_change)
-
+print(f"Financial Analysis")
+print(f"---------------------------")
+print(f"Total Months: {total_months}")
+print(f"Total: ${net_amount}")
+print(f"Average Change: ${average_change:.2f}")
+print(f"Greatest Increase in Profits:, {greatest_increase_month}, (${highest})")
+print(f"Greatest Decrease in Profits:, {greatest_decrease_month}, (${lowest})")
 
 
 
