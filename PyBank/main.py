@@ -25,6 +25,12 @@ with open(csvpath) as csvfile:
 
 for row in csvreader:
      total_months += 1
+     net_amount += int(row[1])
+
+     revenue_change = int(row[1]) - previous_row
+     monthly_change.append(revenue_change)
+     previous_row = int(row[1])
+     month_count.append(row[0])
 
 
 
