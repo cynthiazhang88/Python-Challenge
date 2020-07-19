@@ -22,19 +22,30 @@ with open(csvpath) as csvfile:
     net_amount += int(row[1])
     greatest_increase = int(row[1])
     greatest_increase_month = row[0]
+    
+    for row in csvreader:
+        total_months += 1
+        net_amount += int(row[1])
+        
+        revenue_change = int(row[1]) - previous_row
+        monthly_change.append(revenue_change)
+        previous_row = int(row[1])
+        month_count.append(row[0])
 
-for row in csvreader:
-     total_months += 1
-     net_amount += int(row[1])
+        if int(row[1]) > greatest_increase:
+            greatest_increase = int(row[1])
+            greatest_increase_month = row[0]
+        if int(row[1]) < greatest_decrease:
+            greatest_decrease = int(row[1])
+            greatest_decrease_month = row[0]
+    
+    average_change = sum(monthly_change)/len(monthly_change)
 
-     revenue_change = int(row[1]) - previous_row
-     monthly_change.append(revenue_change)
-     previous_row = int(row[1])
-     month_count.append(row[0])
+    highest = max(monthly_change)
+    lowest  = min(monthly_change)
 
-     if int(row[1]) > greatest_increase:
-         greatest_increase = int(row[1])
-         greatest_increase_month = row[0]
+
+
 
 
 
