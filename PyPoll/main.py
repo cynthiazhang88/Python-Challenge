@@ -14,39 +14,23 @@ with open(csvpath, newline='') as csvfile:
     csv_header = next(csvfile)
     
     for row in csvreader:
-        total_votes =1
-        
-        if row[2]=="Khan":
-            khan_votes = 1
-        elif row[2]=="Correy":
-            correy_votes = 1
-        elif row[2]=="Li":
-            li_votes = 1
-        else:
-            otooley_votes = 1
-            
-            khan_percentage = khan_votes/total_votes
-            correy_percentage = correy_votes/total_votes
-            li_percentage = li_votes/total_votes
-            otooley_percentage = otooley_votes/total_votes
+       total_votes += 1
 
-            election_winner = max(khan_percentage, correy_percentage, li_percentage, otooley_percentage)
-            election_winner
+       if(row[2]) == "Khan":
+           khan_votes += 1
+       elif(row[2]) == "Li":
+            li_votes += 1
+       elif(row[2]) == "Correy":
+            correy_votes += 1
+       else:
+            otooley_votes += 1
+    khan_percentage = khan_votes / total_votes
+    li_percentage = li_votes / total_votes
+    correy_percentage = correy_votes/total_votes
+    otooley_percentage = otooley_votes / total_votes
 
-            if election_winner == "Khan":
-                winner= "Khan"
-            elif election_winner == "Correy":
-                winner = "Correy"
-            elif election_winner == "Li":
-                winner = "Li"
-            else:
-                winner = "O'Tooley"
-            print(f"Election Results")
-            print(f"................")
-            print(f"Total Votes {total_votes}")
-            print(f"................")
-            print(f"Khan: {khan_percentage}({khan_votes})")
-            print(f"Correy: {correy_percentage}({correy_votes})")
-            print(f"Li: {li_percentage}({li_votes})")
-            print("O'Tooley: {otooley_percentage}({otooley_votes})")
+    winner = max(khan_percentage, li_percentage, correy_percentage, otooley_percentage)
+
+    
+    
             
