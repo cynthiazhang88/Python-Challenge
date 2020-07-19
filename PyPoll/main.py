@@ -33,4 +33,20 @@ with open(csvpath, newline='') as csvfile:
             election_winner = max(khan_percentage, correy_percentage, li_percentage, otooley_percentage)
             election_winner
 
-        
+            if election_winner == "Khan":
+                winner= "Khan"
+            elif election_winner == "Correy":
+                winner = "Correy"
+            elif election_winner == "Li":
+                winner = "Li"
+            else:
+                winner = "O'Tooley"
+            print(f"Election Results")
+            print(f"................")
+            print(f"Total Votes {total_votes}")
+            print(f"................")
+            print(f"Khan: {khan_percentage}({khan_votes})")
+            print(f"Correy: {correy_percentage}({correy_votes})")
+            print(f"Li: {li_percentage}({li_votes})")
+            print("O'Tooley: {otooley_percentage}({otooley_votes})")
+            
