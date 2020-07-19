@@ -32,6 +32,10 @@ for row in csvreader:
      previous_row = int(row[1])
      month_count.append(row[0])
 
+     if int(row[1]) > greatest_increase:
+         greatest_increase = int(row[1])
+         greatest_increase_month = row[0]
+
 
 
     
