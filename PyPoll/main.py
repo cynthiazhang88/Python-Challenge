@@ -7,7 +7,7 @@ li_votes = 0
 correy_votes = 0
 otooley_votes = 0
 
-csvpath = os.path.join("PyPoll", "Resources", "election_data.csv")
+csvpath = os.path.join('PyPoll', 'Resources', 'election_data.csv')
 
 with open(csvpath, newline='') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
@@ -24,6 +24,7 @@ with open(csvpath, newline='') as csvfile:
             correy_votes += 1
        else:
             otooley_votes += 1
+
     khan_percentage = (khan_votes / total_votes)*100
     li_percentage = (li_votes / total_votes)*100
     correy_percentage = (correy_votes/total_votes)*100
@@ -51,7 +52,18 @@ print(f"---------------------------")
 print(f"Winner: {winner}")
 print(f"---------------------------")
 
-
+output_file=os.path.join('.','PyPoll', 'Resources', 'election_data_revised.txt')
+with open(output_file, 'w') as txtfile:
+    txtfile.write(f"Election Results\n")
+    txtfile.write(f"---------------------------\n")
+    txtfile.write(f"Total Votes: {total_votes} \n")
+    txtfile.write(f"----------------------------\n")
+    txtfile.write(f"Khan: {khan_percentage}({khan_votes})\n")
+    txtfile.write(f"Correy: {correy_percentage}({correy_votes})\n")
+    txtfile.write(f"Li: {li_percentage}({li_votes})\n")
+    txtfile.write(f"O'Tooley: {otooley_percentage}({otooley_votes})\n")
+    txtfile.write(f"Winner: {winner}\n")
+    txtfile.write(f"-------------------\n")
 
     
     
