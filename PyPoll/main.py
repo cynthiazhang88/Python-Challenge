@@ -24,12 +24,34 @@ with open(csvpath, newline='') as csvfile:
             correy_votes += 1
        else:
             otooley_votes += 1
-    khan_percentage = khan_votes / total_votes
-    li_percentage = li_votes / total_votes
-    correy_percentage = correy_votes/total_votes
-    otooley_percentage = otooley_votes / total_votes
+    khan_percentage = (khan_votes / total_votes)*100
+    li_percentage = (li_votes / total_votes)*100
+    correy_percentage = (correy_votes/total_votes)*100
+    otooley_percentage = (otooley_votes / total_votes)*100
 
-    winner = max(khan_percentage, li_percentage, correy_percentage, otooley_percentage)
+    winner = max(khan_votes, li_votes, correy_votes, otooley_votes)
+    if winner == khan_votes:
+        winner="Khan"
+    elif winner == li_votes:
+        winner="Li"
+    elif winner == correy_votes:
+        winner="Correy"
+    else:
+        winner="O'Tooley"
+
+print(f"Election Results")
+print(f"---------------------------")
+print(f"Total Votes: {total_votes}")
+print(f"---------------------------")
+print(f"Khan: {khan_percentage}({khan_votes})")
+print(f"Correy: {correy_percentage}({correy_votes})")
+print(f"Li: {li_percentage}({li_votes})")
+print(f"O'Tooley: {otooley_percentage}({otooley_votes})")
+print(f"---------------------------")
+print(f"Winner: {winner}")
+print(f"---------------------------")
+
+
 
     
     
